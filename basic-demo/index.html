@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我滴个乖乖</title>
+</head>
+<body>
+<input type="text" id="a"></input>
+<span id="b"></span>
+</body>
+<script>
+	var obj = {test:'ss'};
+	Object.defineProperty(obj,'hello',{
+		set: function(newValue){
+			document.getElementById('a').value = newValue;
+			document.getElementById('b').innerHTML = newValue;
+			console.log(obj)
+		},
+		
+	})
+	document.addEventListener('keyup',function(e){
+		obj.hello = e.target.value || 'hello';
+	})
+</script>
+</html>
